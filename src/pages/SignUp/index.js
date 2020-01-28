@@ -28,8 +28,8 @@ export default function SignUp() {
         <Input
           name="name"
           placeholder="Nome completo"
-          autoFocus
           class="control has-icons-left has-icons-right"
+          autoFocus
         />
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Seu password" />
