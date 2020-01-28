@@ -1,20 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import { Container } from './styles';
 import logo from '~/assets/images/agerba.svg';
 
 export default function SignIn() {
   return (
     <>
-      <img src={logo} alt="AGERBA" width="210" />
+      <img src={logo} alt="Portal Estudantil" width="200" />
 
-      <form action="">
-        <input type="email" placeholder="Seu e-mail" />
-        <input type="password" placeholder="Seu password" />
+      <form>
+        <input
+          type="email"
+          placeholder="Seu e-mail"
+          autofocus="true"
+          required
+        />
+        <input type="password" name="" id="" placeholder="Seu password" />
 
         <button type="submit">Acessar</button>
-        <Link to="/register">Criar conta</Link>
+        <Link to="/register">Criar conta gratuita</Link>
       </form>
     </>
   );

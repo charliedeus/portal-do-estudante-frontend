@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-import BgImg from '~/assets/images/bg-image.jpg';
-
 export const Wrapper = styled.div`
   height: 100%;
-  background: #0e1fb5;
+  background: blue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,7 +11,7 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   width: 100%;
-  max-width: 315px;
+  max-width: 350px;
   text-align: center;
 
   form {
@@ -22,31 +20,32 @@ export const Content = styled.div`
     margin-top: 30px;
 
     input {
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(137, 196, 244, 1);
       border: 0;
       border-radius: 4px;
       height: 44px;
       padding: 0 15px;
-      color: #fff;
+      color: blue;
       margin: 0 0 10px;
 
       &::placeholder {
-        color: rgba(255, 255, 255, 0.7);
+        color: blue;
       }
     }
 
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #3b9eff;
+      background: #369eff;
+      font-weight: bold;
       color: #fff;
       border: 0;
       border-radius: 4px;
-      font-size: 15px;
+      font-size: 16px;
       transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.03, '#3b9eff')};
+        background: ${darken(0.03, '#369eff')};
       }
     }
 
@@ -54,6 +53,7 @@ export const Content = styled.div`
       color: #fff;
       margin-top: 15px;
       font-size: 16px;
+      font-weight: bold;
       opacity: 0.8;
 
       &:hover {
