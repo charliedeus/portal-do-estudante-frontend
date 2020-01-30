@@ -12,6 +12,30 @@ export function signInSuccess(token, user) {
   };
 }
 
+export function signUpRequest(
+  name,
+  email,
+  password,
+  street,
+  district,
+  city,
+  zip_code
+) {
+  return {
+    type: '@auth/SIGN_UP_REQUEST',
+    payload: {
+      name,
+      email,
+      password,
+      street,
+      district,
+      city,
+      uf: 'BA',
+      zip_code,
+    },
+  };
+}
+
 export function signFailure() {
   return {
     type: '@auth/SIGN_FAILURE',
