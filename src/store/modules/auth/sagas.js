@@ -29,12 +29,25 @@ export function* signIn({ payload }) {
 
 export function* signUp({ payload }) {
   try {
-    const { name, email, password } = payload;
-
-    yield call(api.post, '/users', {
+    const {
       name,
       email,
       password,
+      adress: { street, district, city, uf, ibge, zip_code },
+    } = payload;
+
+    yield call(api.post, '/register', {
+      name,
+      email,
+      password,
+      adress: {
+        street,
+        district,
+        city,
+        uf,
+        ibge,
+        zip_code,
+      },
     });
 
     toast.success(`Cadastro realizado com sucesso!`);

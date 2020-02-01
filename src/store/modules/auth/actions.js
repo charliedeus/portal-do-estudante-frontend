@@ -19,6 +19,8 @@ export function signUpRequest(
   street,
   district,
   city,
+  uf,
+  ibge,
   zip_code
 ) {
   return {
@@ -27,11 +29,14 @@ export function signUpRequest(
       name,
       email,
       password,
-      street,
-      district,
-      city,
-      uf: 'BA',
-      zip_code,
+      adress: {
+        street,
+        district,
+        city,
+        uf,
+        ibge,
+        zip_code,
+      },
     },
   };
 }
