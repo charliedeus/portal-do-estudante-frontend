@@ -12,31 +12,14 @@ export function signInSuccess(token, user) {
   };
 }
 
-export function signUpRequest(
-  name,
-  email,
-  password,
-  street,
-  district,
-  city,
-  uf,
-  ibge,
-  zip_code
-) {
+export function signUpRequest(name, email, password, address) {
   return {
     type: '@auth/SIGN_UP_REQUEST',
     payload: {
       name,
       email,
       password,
-      adress: {
-        street,
-        district,
-        city,
-        uf,
-        ibge,
-        zip_code,
-      },
+      address,
     },
   };
 }

@@ -16,47 +16,25 @@ const schema = Yup.object().shape({
   password: Yup.string()
     .min(6, 'No mínimo 6 caracteres!')
     .required('O password é obrigatório!'),
-  // address: Yup.object().shape({
-  street: Yup.string().required('O endereço completo é obrigatório!'),
-  district: Yup.string().required('O bairro é obrigatório!'),
-  city: Yup.string().required('A cidade é obrigatória!'),
-  uf: Yup.string().required('UF é obrigtório'),
-  ibge: Yup.number()
-    .integer()
-    .positive(),
-  zip_code: Yup.number()
-    .integer()
-    .positive(),
-  // }),
+  address: Yup.object().shape({
+    street: Yup.string().required('O endereço completo é obrigatório!'),
+    district: Yup.string().required('O bairro é obrigatório!'),
+    city: Yup.string().required('A cidade é obrigatória!'),
+    uf: Yup.string().required('UF é obrigtório'),
+    ibge: Yup.number()
+      .integer()
+      .positive(),
+    zip_code: Yup.number()
+      .integer()
+      .positive(),
+  }),
 });
 
 export default function SignUp() {
   const dispatch = useDispatch();
 
-  function handleSubmit({
-    name,
-    email,
-    password,
-    street,
-    district,
-    city,
-    uf,
-    ibge,
-    zip_code,
-  }) {
-    dispatch(
-      signUpRequest(
-        name,
-        email,
-        password,
-        street,
-        district,
-        city,
-        uf,
-        ibge,
-        zip_code
-      )
-    );
+  function handleSubmit({ name, email, password, address }) {
+    dispatch(signUpRequest(name, email, password, address));
   }
 
   return (
@@ -70,14 +48,14 @@ export default function SignUp() {
 
         <hr />
 
-        {/* <Scope path="address"> */}
-        <Input name="street" placeholder="Rua e número" />
-        <Input name="district" placeholder="Bairro" />
-        <Input name="city" placeholder="Município" />
-        <Input name="uf" value="BA" disabled />
-        <Input name="zip_code" type="number" placeholder="CEP" />
-        <Input name="ibge" type="number" placeholder="Código do IBGE" />
-        {/* </Scope> */}
+        <Scope path="address">
+          <Input name="street" placeholder="Rua e número" />
+          <Input name="district" placeholder="Bairro" />
+          <Input name="city" placeholder="Município" />
+          <Input name="uf" value="BA" disabled />
+          <Input name="zip_code" type="number" placeholder="CEP" />
+          <Input name="ibge" type="number" placeholder="Código do IBGE" />
+        </Scope>
 
         <button type="submit">Criar conta</button>
         <Link to="/">Já possuo login</Link>

@@ -17,10 +17,12 @@ export function* signIn({ payload }) {
 
     const { token, user } = response.data;
 
+    api.defaults.headers['Authorization'] = `Bearer ${token}`;
+
     yield put(signInSuccess(token, user));
 
-    toast.success(`Olá, ${user.name}, seja bem vindo!`);
-    history.push('/profile');
+    toast.success(`Olá, ${user.name.split(' ').slice(0, 1)}, seja bem vindo!`);
+    history.push('/dashboard');
   } catch (err) {
     toast.error('Falha na autenticação, verifique seus dados');
     yield put(signFailure());
@@ -29,25 +31,13 @@ export function* signIn({ payload }) {
 
 export function* signUp({ payload }) {
   try {
-    const {
-      name,
-      email,
-      password,
-      adress: { street, district, city, uf, ibge, zip_code },
-    } = payload;
+    const { name, email, password, address } = payload;
 
     yield call(api.post, '/register', {
       name,
       email,
       password,
-      adress: {
-        street,
-        district,
-        city,
-        uf,
-        ibge,
-        zip_code,
-      },
+      address,
     });
 
     toast.success(`Cadastro realizado com sucesso!`);
@@ -59,7 +49,18 @@ export function* signUp({ payload }) {
   }
 }
 
+export function setToken({ payload }) {
+  if (!payload) return;
+
+  const { token } = payload.auth;
+
+  if (token) {
+    api.defaults.headers['Authorization'] = `Bearer ${token}`;
+  }
+}
+
 export default all([
+  takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUp),
 ]);
