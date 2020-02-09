@@ -13,7 +13,7 @@ export default function Header() {
     <Container>
       <Navbar transparent>
         <Navbar.Brand>
-          <Navbar.Item href="/">
+          <Navbar.Item href="/dashboard">
             <img
               src={logo}
               alt=""
@@ -27,7 +27,7 @@ export default function Header() {
         <Navbar.Menu>
           <Navbar.Segment align="start">
             <Navbar.Item>
-              <StyledLink to="/">DASHBOARD</StyledLink>
+              <StyledLink to="/dashboard">DASHBOARD</StyledLink>
             </Navbar.Item>
           </Navbar.Segment>
 

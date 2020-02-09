@@ -35,6 +35,7 @@ export const NotificationList = styled.div`
   background: rgba(228, 241, 254, 0.5);
   border-radius: 4px;
   padding: 15px 5px;
+  display: ${props => (props.visible ? 'block' : 'none')};
 
   &::before {
     content: '';
@@ -72,9 +73,11 @@ export const Notification = styled.div`
   }
 
   time {
+    display: block;
     font-size: 12px;
     opacity: 0.6;
     background: none;
+    margin-bottom: 5px;
   }
 
   button {
@@ -82,9 +85,6 @@ export const Notification = styled.div`
     border: 0;
     background: none;
     color: ${lighten(0.2, 'rgba(255, 255, 255, 1)')};
-    padding: 0 5px;
-    margin: 0 5px;
-    border-left: 1px solid rgba(255, 255, 255, 1);
   }
 
   ${props =>
@@ -97,6 +97,7 @@ export const Notification = styled.div`
         height: 8px;
         border-radius: 50%;
         background: rgba(77, 19, 209, 1);
+        margin-left: 10px;
       }
     `}
 `;
