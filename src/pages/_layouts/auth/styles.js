@@ -18,6 +18,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 30px;
+    background: blue !important;
 
     input {
       background: rgba(137, 196, 244, 1);
