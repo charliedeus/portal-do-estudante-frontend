@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-perfect-scrollbar/dist/css/styles.css';
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
@@ -10,6 +11,8 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
+    background: rgba(34, 49, 63, 1);
+    color: rgba(228, 241, 254, 0.8); /** Cor de todas as fontes */
   }
 
   *:focus {
@@ -23,6 +26,7 @@ export default createGlobalStyle`
   body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+    background: transparent; /** Para definir que o fundo é transparent */
   }
 
   body, input, button {
@@ -31,6 +35,7 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+    background: none;
   }
 
   ul {

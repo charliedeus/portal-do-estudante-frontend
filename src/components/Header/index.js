@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import { Container, StyledLink, Profile } from './styles';
 import 'rbx/index.css';
 import { Navbar } from 'rbx';
-import logo from '~/assets/images/agerba.png';
+import logo from '~/assets/images/agerba.svg';
+
+import Notifications from '~/components/Notifications';
 
 export default function Header() {
   return (
     <Container>
-      <Navbar>
+      <Navbar transparent>
         <Navbar.Brand>
           <Navbar.Item href="/">
             <img
@@ -29,8 +31,9 @@ export default function Header() {
             </Navbar.Item>
           </Navbar.Segment>
 
-          <Navbar.Segment align="end">
+          <Navbar.Segment transparent align="end">
             <Navbar.Item>
+              <Notifications />
               <Link to="/profile">
                 <Profile>
                   <div>
