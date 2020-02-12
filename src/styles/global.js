@@ -21,6 +21,7 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+    background: rgba(34, 49, 63, 1);
   }
 
   body {

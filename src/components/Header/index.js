@@ -31,21 +31,19 @@ export default function Header() {
             </Navbar.Item>
           </Navbar.Segment>
 
-          <Navbar.Segment transparent align="end">
+          <Navbar.Segment align="end">
             <Navbar.Item>
               <Notifications />
-              <Link to="/profile">
-                <Profile>
-                  <div>
-                    <strong>Charles Loureiro de Deus</strong>
-                    <StyledLink to="/profile">Meu perfil</StyledLink>
-                  </div>
-                  <img
-                    src="https://api.adorable.io/avatars/70/abott@adorable.png"
-                    alt="Charles Loureiro de Deus"
-                  />
-                </Profile>
-              </Link>
+              <Profile>
+                <div>
+                  <strong>Charles Loureiro de Deus</strong>
+                  <StyledLink to="/profile">Meu perfil</StyledLink>
+                </div>
+                <img
+                  src="https://api.adorable.io/avatars/70/abott@adorable.png"
+                  alt="Charles Loureiro de Deus"
+                />
+              </Profile>
             </Navbar.Item>
           </Navbar.Segment>
         </Navbar.Menu>

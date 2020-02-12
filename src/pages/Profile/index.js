@@ -1,19 +1,28 @@
 import React from 'react';
 import { Form, Input } from '@rocketseat/unform';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { updateProfileRequest } from '~/store/modules/user/actions';
 
 import { Container } from './styles';
 
+import AvatarInput from './AvatarInput';
+
 export default function Profile() {
+  const dispatch = useDispatch();
   const profile = useSelector(state => state.user.profile);
 
-  function handleSubmit(data) {}
+  function handleSubmit(data) {
+    dispatch(updateProfileRequest(data));
+  }
 
   return (
     <>
       <Container>
         <Form autoComplete="off" initialData={profile} onSubmit={handleSubmit}>
-          <Input name="name" placeholder="Nome completo" autoFocus />
+          <AvatarInput name="avatar" />
+
+          <Input name="name" placeholder="Nome completo" />
           <Input name="email" type="email" placeholder="Seu e-mail" />
 
           <hr />
@@ -29,6 +38,8 @@ export default function Profile() {
             type="password"
             placeholder="Confirme novo password"
           />
+
+          <hr />
 
           <button type="submit">Atualizar perfil</button>
         </Form>

@@ -8,7 +8,7 @@ export const Container = styled.div`
 export const StyledLink = styled(Link)`
   color: rgba(228, 241, 254, 1);
   text-decoration: none;
-  background: transparent !important;
+  background: none;
 
   &:focus,
   &:hover,

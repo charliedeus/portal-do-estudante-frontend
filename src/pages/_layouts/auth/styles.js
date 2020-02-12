@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background: blue;
+  /* background: blue; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     margin-top: 30px;
-    background: blue !important;
+    /* background: blue !important; */
 
     input {
       background: rgba(137, 196, 244, 1);
@@ -26,11 +26,11 @@ export const Content = styled.div`
       border-radius: 4px;
       height: 44px;
       padding: 0 15px;
-      color: blue;
+      color: #333;
       margin: 0 0 10px;
 
       &::placeholder {
-        color: blue;
+        color: #333;
       }
     }
 
