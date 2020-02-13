@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { MdNotifications } from 'react-icons/md';
-import { parseISO, formatDistance } from 'date-fns';
-import pt from 'date-fns/locale/pt';
+// import { parseISO, formatDistance } from 'date-fns';
+// import pt from 'date-fns/locale/pt';
 
 import {
   Container,
@@ -24,7 +24,7 @@ export default function Notifications() {
 
   useEffect(() => {
     async function loadNotifications() {
-      const response = await api.get('users');
+      const response = await api.get('notifications');
 
       // const data = response.data.map(notification => ({
       //   ...notification,

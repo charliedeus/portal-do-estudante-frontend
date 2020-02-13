@@ -21,8 +21,6 @@ export function* signIn({ payload }) {
 
     yield put(signInSuccess(token, user));
 
-    console.tron.log(user);
-
     toast.success(`Olá, ${user.name.split(' ').slice(0, 1)}, seja bem vindo!`);
     history.push('/dashboard');
   } catch (err) {

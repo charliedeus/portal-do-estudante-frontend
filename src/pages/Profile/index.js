@@ -20,7 +20,7 @@ export default function Profile() {
     <>
       <Container>
         <Form autoComplete="off" initialData={profile} onSubmit={handleSubmit}>
-          <AvatarInput name="avatar" />
+          <AvatarInput name="avatar_id" />
 
           <Input name="name" placeholder="Nome completo" />
           <Input name="email" type="email" placeholder="Seu e-mail" />

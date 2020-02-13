@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-import { Container, StyledLink, Profile } from './styles';
+import { Container, Profile } from './styles';
 import 'rbx/index.css';
 import { Navbar } from 'rbx';
 import logo from '~/assets/images/agerba.svg';
@@ -9,6 +9,8 @@ import logo from '~/assets/images/agerba.svg';
 import Notifications from '~/components/Notifications';
 
 export default function Header() {
+  const profile = useSelector(state => state.user.profile);
+
   return (
     <Container>
       <Navbar transparent>
@@ -26,21 +28,22 @@ export default function Header() {
         </Navbar.Brand>
         <Navbar.Menu>
           <Navbar.Segment align="start">
-            <Navbar.Item>
-              <StyledLink to="/dashboard">DASHBOARD</StyledLink>
-            </Navbar.Item>
+            <Navbar.Item href="/dashboard">DASHBOARD</Navbar.Item>
           </Navbar.Segment>
 
           <Navbar.Segment align="end">
-            <Navbar.Item>
+            <Navbar.Item href="/profile">
               <Notifications />
               <Profile>
                 <div>
-                  <strong>Charles Loureiro de Deus</strong>
-                  <StyledLink to="/profile">Meu perfil</StyledLink>
+                  <strong>{profile.name}</strong>
+                  Meu perfil
                 </div>
                 <img
-                  src="https://api.adorable.io/avatars/70/abott@adorable.png"
+                  src={
+                    profile.avatar.url ||
+                    'https://api.adorable.io/avatars/70/abott@adorable.png'
+                  }
                   alt="Charles Loureiro de Deus"
                 />
               </Profile>

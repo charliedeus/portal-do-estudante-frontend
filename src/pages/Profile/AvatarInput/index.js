@@ -27,6 +27,8 @@ export default function AvatarInput() {
 
     data.append('file', e.target.files[0]);
 
+    console.tron.log(data);
+
     const response = await api.post('files', data);
 
     const { id, url } = response.data;
