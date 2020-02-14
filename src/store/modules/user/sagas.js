@@ -13,7 +13,7 @@ export function* updateProfile({ payload }) {
       rest.oldPassword ? rest : {}
     );
 
-    const response = yield call(api.put, 'students', profile);
+    const response = yield call(api.put, 'users', profile);
 
     toast.success('Perfil atualizado com sucesso!');
 

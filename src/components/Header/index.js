@@ -32,8 +32,10 @@ export default function Header() {
           </Navbar.Segment>
 
           <Navbar.Segment align="end">
-            <Navbar.Item href="/profile">
+            <Navbar.Item>
               <Notifications />
+            </Navbar.Item>
+            <Navbar.Item href="/profile">
               <Profile>
                 <div>
                   <strong>{profile.name}</strong>
@@ -41,10 +43,11 @@ export default function Header() {
                 </div>
                 <img
                   src={
-                    profile.avatar.url ||
-                    'https://api.adorable.io/avatars/70/abott@adorable.png'
+                    profile.avatar
+                      ? profile.avatar.url
+                      : 'https://api.adorable.io/avatars/70/abott@adorable.png'
                   }
-                  alt="Charles Loureiro de Deus"
+                  alt={profile.name}
                 />
               </Profile>
             </Navbar.Item>

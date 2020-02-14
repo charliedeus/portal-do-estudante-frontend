@@ -5,10 +5,10 @@ import api from '~/services/api';
 import { Container } from './styles';
 
 export default function AvatarInput() {
-  const { defaulValue, registerField } = useField('avatar');
+  const { defaultValue, registerField } = useField('avatar');
 
-  const [file, setFile] = useState(defaulValue && defaulValue.id);
-  const [preview, setPreview] = useState(defaulValue && defaulValue.url);
+  const [file, setFile] = useState(defaultValue && defaultValue.id);
+  const [preview, setPreview] = useState(defaultValue && defaultValue.url);
 
   const ref = useRef();
 
@@ -25,9 +25,9 @@ export default function AvatarInput() {
   async function handleChange(e) {
     const data = new FormData();
 
-    data.append('file', e.target.files[0]);
+    e.target.files[0].document_type_id = 4;
 
-    console.tron.log(data);
+    data.append('file', e.target.files[0]);
 
     const response = await api.post('files', data);
 
@@ -38,26 +38,25 @@ export default function AvatarInput() {
   }
 
   return (
-    <>
-      <Container>
-        <label htmlFor="avatar">
-          <img
-            src={
-              preview || 'https://api.adorable.io/avatars/70/abott@adorable.png'
-            }
-            alt=""
-          />
+    <Container>
+      <label htmlFor="avatar">
+        <img
+          src={
+            preview ||
+            'https://api.adorable.io/avatars/50/charles@adorable.io.png'
+          }
+          alt="Avatar"
+        />
 
-          <input
-            type="file"
-            id="avatar"
-            accept="image/*"
-            data-file={file}
-            onChange={handleChange}
-            ref={ref}
-          />
-        </label>
-      </Container>
-    </>
+        <input
+          type="file"
+          id="avatar"
+          accept="image/*"
+          data-file={file}
+          onChange={handleChange}
+          ref={ref}
+        />
+      </label>
+    </Container>
   );
 }
