@@ -46,4 +46,8 @@ export default createGlobalStyle`
   button {
     cursor: pointer;
   }
+
+  .Toastify__toast-body {
+    background: none;
+  }
 `;

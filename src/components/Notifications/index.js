@@ -17,7 +17,7 @@ export default function Notifications() {
   const [visible, setVisible] = useState(false);
   const [notifications, setNotifications] = useState([]);
 
-  const hasUnred = useMemo(
+  const hasUnread = useMemo(
     () => !!notifications.find(notification => notification.read === false),
     [notifications]
   );
@@ -57,7 +57,7 @@ export default function Notifications() {
 
   return (
     <Container>
-      <Badge onClick={handleToggleVisible} hasUnread={hasUnred}>
+      <Badge onClick={handleToggleVisible} hasUnread={hasUnread}>
         <MdNotifications color="rgba(228, 241, 254, 1)" size={20} />
       </Badge>
 
