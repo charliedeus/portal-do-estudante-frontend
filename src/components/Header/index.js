@@ -27,10 +27,6 @@ export default function Header() {
           <Navbar.Burger />
         </Navbar.Brand>
         <Navbar.Menu>
-          <Navbar.Segment align="start">
-            <Navbar.Item href="/dashboard">DASHBOARD</Navbar.Item>
-          </Navbar.Segment>
-
           <Navbar.Segment align="end">
             <Navbar.Item>
               <Notifications />

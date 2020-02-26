@@ -13,6 +13,7 @@ import { store, persistor } from './store';
 
 import GlobalStyles from './styles/global';
 import 'rbx/index.css';
+// import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (

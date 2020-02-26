@@ -27,7 +27,7 @@ export default createGlobalStyle`
   body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background: transparent; /** Para definir que o fundo é transparent */
+    background: transparent; /* Para definir que o fundo é transparent */
   }
 
   body, input, button {
