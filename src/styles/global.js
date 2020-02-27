@@ -11,8 +11,8 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    background: rgba(34, 49, 63, 1);
-    color: rgba(228, 241, 254, 0.8); /** Cor de todas as fontes */
+    /* background: rgba(34, 49, 63, 1); */
+    /* color: rgba(228, 241, 254, 0.8); /** Cor de todas as fontes */
   }
 
   *:focus {
@@ -21,17 +21,17 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
-    background: rgba(34, 49, 63, 1);
+    /* background: rgba(34, 49, 63, 1); */
   }
 
   body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
-    background: transparent; /* Para definir que o fundo é transparent */
+    /* background: transparent; /* Para definir que o fundo é transparent */
   }
 
   body, input, button {
-    font: 14px 'Roboto', sans-serif;
+    /* font: 14px 'Roboto', sans-serif; */
   }
 
   a {
@@ -47,7 +47,7 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  .Toastify__toast-body {
+  /* .Toastify__toast-body {
     background: none;
-  }
+  } */
 `;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { TimelineLite, Power3 } from 'gsap';
 
 import { Container, Profile } from './styles';
 import 'rbx/index.css';
@@ -9,7 +10,19 @@ import logo from '~/assets/images/agerba.svg';
 import Notifications from '~/components/Notifications';
 
 export default function Header() {
+  let headerRef = useRef(null);
+  let tl = new TimelineLite({ delay: 0.8 });
+
   const profile = useSelector(state => state.user.profile);
+
+  useEffect(() => {
+    tl.from(Container, {
+      y: 16,
+      opacity: 0,
+      duration: 0.8,
+      ease: Power3.easeOut,
+    });
+  }, []);
 
   return (
     <Container>

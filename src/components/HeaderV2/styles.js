@@ -1,25 +1,6 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const Container = styled.div`
-  background: none;
-`;
-
-export const StyledLink = styled(Link)`
-  /* color: rgba(228, 241, 254, 1);
-  text-decoration: none;
-  background: none;
-
-  &:focus,
-  &:hover,
-  &:visited,
-  &:link,
-  &:active {
-    color: rgba(228, 241, 254, 1);
-    text-decoration: none;
-    background: none;
-  } */
-`;
+export const Container = styled.div``;
 
 export const Profile = styled.div`
   display: flex;
@@ -35,7 +16,7 @@ export const Profile = styled.div`
 
     strong {
       display: block;
-      color: rgba(228, 241, 254, 1);
+      /* color: rgba(228, 241, 254, 1); */
 
       a {
         display: block;

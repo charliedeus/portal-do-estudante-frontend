@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Form, Input, Scope } from '@rocketseat/unform';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
+
+import apiViaCep from '~/services/viacep';
 
 import logo from '~/assets/images/agerba.svg';
 
@@ -31,17 +34,44 @@ const schema = Yup.object().shape({
 });
 
 export default function SignUp() {
+  const inputRef = useRef(null);
+  let streetRef = useRef(null);
+  let districtRef = useRef(null);
+  let cityRef = useRef(null);
+  let ufRef = useRef(null);
+  let ibgeRef = useRef(null);
+
   const dispatch = useDispatch();
 
   function handleSubmit({ name, email, password, address }) {
     dispatch(signUpRequest(name, email, password, address));
   }
 
+  async function handleChange(e) {
+    try {
+      const response = await apiViaCep.get(`${inputRef.current.value}/json`);
+
+      const { logradouro, bairro, localidade, uf, ibge } = response.data;
+
+      streetRef.current.value = logradouro;
+      districtRef.current.value = bairro;
+      cityRef.current.value = localidade;
+      ufRef.current.value = uf;
+      ibgeRef.current.value = ibge;
+    } catch (error) {
+      toast.error('Não foi possível localizar CEP informado.');
+    }
+  }
+
+  useEffect(() => {
+    console.log(inputRef.current.name);
+  }, [inputRef]);
+
   return (
     <>
       <img src={logo} alt="Portal Estudantil" width="200" />
 
-      <Form schema={schema} onSubmit={handleSubmit} autoComplete="off">
+      <Form schema={schema} onSubmit={handleSubmit} autoComplete="false">
         <Input name="name" placeholder="Nome completo" autoFocus />
         <Input name="email" type="email" placeholder="Seu e-mail" />
         <Input name="password" type="password" placeholder="Seu password" />
@@ -49,12 +79,23 @@ export default function SignUp() {
         <hr />
 
         <Scope path="address">
-          <Input name="street" placeholder="Rua e número" />
-          <Input name="district" placeholder="Bairro" />
-          <Input name="city" placeholder="Município" />
-          <Input name="uf" value="BA" disabled />
-          <Input name="zip_code" type="number" placeholder="CEP" />
-          <Input name="ibge" type="number" placeholder="Código do IBGE" />
+          <input
+            name="zip_code"
+            type="number"
+            placeholder="CEP (somente números)"
+            onBlur={handleChange}
+            ref={inputRef}
+          />
+          <input name="street" placeholder="Rua e número" ref={streetRef} />
+          <input name="district" placeholder="Bairro" ref={districtRef} />
+          <input name="city" placeholder="Município" ref={cityRef} />
+          <input name="uf" value="BA" ref={ufRef} disabled />
+          <input
+            name="ibge"
+            type="number"
+            placeholder="Código do IBGE"
+            ref={ibgeRef}
+          />
         </Scope>
 
         <button type="submit">Criar conta</button>
